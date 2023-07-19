@@ -1,23 +1,10 @@
 import { StyleSheet, Text, View, TextInput, Pressable } from "react-native";
 import React, { useEffect, useState } from "react";
-import { fetchData } from "../api";
 import { AntDesign } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
 const InputScreen = () => {
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const data = await fetchData();
-        console.log(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    getData();
-  }, []);
-
+  
   const [inputText, setInputText] = useState("");
 
   const inputTextHandler = (data) => {
