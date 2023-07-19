@@ -3,6 +3,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import InputScreen from "./screens/InputScreen";
 import ResultScreen from "./screens/ResultScreen";
 import { useFonts } from "expo-font";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
 
 export default function App() {
   const [loaded] = useFonts({
@@ -12,6 +14,21 @@ export default function App() {
   if (!loaded) {
     return null;
   }
+
+  const InputLogo = () => {
+    return (
+      <MaterialCommunityIcons
+        name="book"
+        size={24}
+        color="#999999"
+        style={{ marginRight: 18 }}
+      />
+    );
+  };
+
+  const BackLogo = () => {
+    return <AntDesign name="back" size={22} color="#999999" />;
+  };
 
   const Stack = createStackNavigator();
 
@@ -37,6 +54,7 @@ export default function App() {
               color: "#999999",
               fontFamily: "Major",
             },
+            headerRight: () => <InputLogo />,
           }}
         />
         <Stack.Screen
@@ -45,6 +63,7 @@ export default function App() {
           options={{
             presentation: "modal",
             headerTitle: "Answer",
+            headerBackImage: () => <BackLogo />,
           }}
         />
       </Stack.Navigator>
