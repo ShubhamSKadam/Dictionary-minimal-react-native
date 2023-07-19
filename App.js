@@ -17,12 +17,35 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={InputScreen} />
+      <Stack.Navigator
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: "black",
+          },
+          headerTitleStyle: {
+            color: "white",
+            fontSize: 18,
+            fontFamily: "Major",
+          },
+        }}
+      >
+        <Stack.Screen
+          name="Pocket Dictionary"
+          component={InputScreen}
+          options={{
+            headerTitleStyle: {
+              color: "#999999",
+              fontFamily: "Major",
+            },
+          }}
+        />
         <Stack.Screen
           name="Result"
           component={ResultScreen}
-          options={{ presentation: "modal" }}
+          options={{
+            presentation: "modal",
+            headerTitle: "Answer",
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>

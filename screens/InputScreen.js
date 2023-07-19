@@ -2,9 +2,8 @@ import { StyleSheet, Text, View, TextInput, Pressable } from "react-native";
 import React, { useEffect, useState } from "react";
 import { AntDesign } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-
+import { Alert } from "react-native";
 const InputScreen = () => {
-  
   const [inputText, setInputText] = useState("");
 
   const inputTextHandler = (data) => {
@@ -16,7 +15,9 @@ const InputScreen = () => {
   const onPressHandler = () => {
     if (inputText.length <= 1) {
       // Replace the below error with alert
-      console.error("Warning");
+      Alert.alert("Oops", "Is this a new word 🤔 ?", [
+        { text: "Search Again", onPress: () => console.log("OK Pressed") },
+      ]);
     } else {
       navigation.navigate("Result", { inputText: inputText });
     }
